@@ -1,0 +1,56 @@
+/* src/app/user-detail/user-detail.component.css */
+
+h2 {
+    color: #333;
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px;
+  }
+  
+  .user-detail-container {
+    max-width: 500px; /* Limit the width of the details box */
+    margin: 20px auto; /* Center the box and add space above/below */
+    padding: 20px; /* Add padding inside the box */
+    border: 1px solid #ddd; /* Add a light border */
+    border-radius: 8px; /* Round the corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: #fff; /* White background */
+  }
+  
+  .detail-item {
+    margin-bottom: 15px; /* Add space between detail items */
+    padding-bottom: 15px; /* Add padding below each item */
+    border-bottom: 1px dashed #eee; /* Add a dashed border below each item */
+  }
+  
+  /* Remove border from the last detail item */
+  .detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .detail-item strong {
+    display: inline-block; /* Make the strong tag behave like a block for margin/padding */
+    min-width: 100px; /* Give labels a minimum width for alignment */
+    margin-right: 10px; /* Space between label and value */
+    color: #555;
+  }
+  
+  .loading-message p {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
+  a {
+    display: block; /* Make the link a block element */
+    margin-top: 20px; /* Add space above the link */
+    text-align: center; /* Center the link */
+    color: #007bff; /* Bootstrap blue color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }

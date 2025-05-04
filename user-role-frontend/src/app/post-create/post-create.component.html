@@ -1,0 +1,32 @@
+<h2>Create New Post</h2>
+
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" formControlName="content" required rows="5"></textarea>
+    <div *ngIf="postForm.get('content')?.invalid && postForm.get('content')?.touched">
+      Content is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="userId">Author:</label>
+    <select *ngIf="users && users.length > 0" id="userId" formControlName="userId" required>
+       <option [value]="null" disabled selected>-- Select an Author --</option>
+      <option *ngFor="let user of users" [value]="user.id">
+        {{ user.username }} </option>
+    </select>
+    <div *ngIf="!users || users.length === 0">
+        <p>Loading users or no users available.</p>
+     </div>
+
+    <div *ngIf="postForm.get('userId')?.invalid && postForm.get('userId')?.touched">
+       Author is required.
+     </div>
+  </div>
+  <button type="submit" [disabled]="postForm.invalid">Create Post</button>
+
+  <p><a routerLink="/posts">Cancel</a></p>
+
+</form>

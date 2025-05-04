@@ -1,0 +1,37 @@
+/* src/app/user-list/user-list.component.css */
+
+h2 {
+    color: #333; /* Dark grey color for heading */
+    margin-bottom: 20px; /* Space below heading */
+  }
+  
+  table {
+    width: 80%; /* Make the table take up 80% of its container's width */
+    border-collapse: collapse; /* Collapse borders between cells */
+    margin: 0 auto; /* Center the table on the page */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+  
+  th, td {
+    border: 1px solid #ddd; /* Light grey border for cells */
+    padding: 12px; /* Add padding inside cells */
+    text-align: left; /* Align text to the left */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light grey background for table headers */
+    color: #555; /* Darker grey color for header text */
+    font-weight: bold; /* Bold text for headers */
+  }
+  
+  /* Add a subtle hover effect on table rows */
+  tbody tr:hover {
+    background-color: #f9f9f9; /* Very light grey background on hover */
+  }
+  
+  /* Style for the 'No users found' message */
+  .noUsers p {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+  }

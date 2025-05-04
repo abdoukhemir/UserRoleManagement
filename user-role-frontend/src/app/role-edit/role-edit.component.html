@@ -1,0 +1,27 @@
+<h2>Edit Role</h2>
+
+<form *ngIf="editRoleForm" [formGroup]="editRoleForm" (ngSubmit)="onSubmit()">
+
+  <div *ngIf="roleId !== undefined">
+     <label>Role ID:</label>
+     <span>{{ roleId }}</span>
+  </div>
+
+  <div>
+    <label for="name">Role Name:</label>
+    <input id="name" type="text" formControlName="name" required>
+    <div *ngIf="editRoleForm.get('name')?.invalid && editRoleForm.get('name')?.touched">
+      Role Name is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="editRoleForm.invalid">Save Changes</button> <p><a routerLink="/roles">Cancel</a></p>
+
+</form>
+
+<div *ngIf="!editRoleForm && roleId !== undefined">
+    <p>Loading role data...</p>
+</div>
+<div *ngIf="!editRoleForm && roleId === undefined">
+    <p>Invalid request: No role ID provided for editing.</p>
+</div>

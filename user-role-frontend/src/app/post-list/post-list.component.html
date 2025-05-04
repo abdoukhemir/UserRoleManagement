@@ -1,0 +1,40 @@
+<ng-template #noPosts>
+    <p>No posts found.</p>
+  </ng-template>
+
+  <h2>Posts List</h2>
+
+  <button routerLink="/posts/create">Create New Post</button>
+
+  <div *ngIf="posts.length > 0; else noPosts">
+    <table>
+      <thead>
+        <tr>
+          <th>Post ID</th>
+          <th>Content</th>
+          <th>Author User ID</th>
+          <th>Author Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of posts">
+          <td>{{ post.id }}</td>
+          <td>{{ post.content.substring(0, 50) + (post.content.length > 50 ? '...' : '') }}</td>
+          <td>{{ post.userId }}</td>
+          <td>{{ getAuthorName(post.userId) }}</td>
+          <td>
+            <a [routerLink]="['/posts', post.id]">Detail</a>
+            |
+            <a [routerLink]="['/posts/edit', post.id]">Edit</a>
+            |
+            <button (click)="deletePost(post.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noPosts>
+    <p>No posts found.</p>
+  </ng-template>

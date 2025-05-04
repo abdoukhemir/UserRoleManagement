@@ -1,0 +1,32 @@
+<div *ngIf="message" [ngClass]="{'notification-container': true, 'success': type === 'success', 'error': type === 'error'}">
+    <div class="notification-message">
+      <span>{{ message }}</span>
+    </div>
+    </div>
+  
+  <style>
+    .notification-container {
+      padding: 12px 20px; /* Adjust padding */
+      margin: 10px 0; /* Margin above/below */
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      opacity: 0.95; /* Slightly transparent */
+      /* Optional: Positioning */
+      /* position: fixed; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1050; */
+      /* max-width: 400px; */ /* Max width if positioned */
+    }
+  
+    .notification-container.success {
+      background-color: #28a745; /* Green */
+    }
+  
+    .notification-container.error {
+      background-color: #dc3545; /* Red */
+    }
+  
+    /* Optional styling for the message span or close button */
+    /* .notification-message { margin-right: 10px; } */
+    /* .close-button { ... } */
+  </style>

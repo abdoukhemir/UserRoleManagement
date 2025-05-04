@@ -1,0 +1,70 @@
+
+1. User Endpoints (/api/Users)
+
+GET /api/Users
+Description: Retrieve a list of all users.
+Request Body: None
+GET /api/Users/{id}
+Description: Retrieve a specific user by their ID. Replace {id} with the actual User ID (e.g., /api/Users/1).
+Request Body: None
+GET /api/Users/WithRoles
+Description: Retrieve all users, including their associated roles. (Requires implementation in your service/controller to include the UserRoles navigation property and load the related Role data).
+Request Body: None
+GET /api/Users/{id}/WithRoles
+Description: Retrieve a specific user by ID, including their associated roles. Replace {id} with the actual User ID (e.g., /api/Users/1/WithRoles). (Requires implementation).
+Request Body: None
+GET /api/Users/WithPosts
+Description: Retrieve all users, including the posts they have authored. (Requires implementation).
+Request Body: None
+GET /api/Users/{id}/WithPosts
+Description: Retrieve a specific user by ID, including the posts they have authored. Replace {id} with the actual User ID (e.g., /api/Users/1/WithPosts). (Requires implementation).
+Request Body: None
+POST /api/Users
+Description: Create a new user.
+Request Body: Required (JSON containing username, email, password).
+PUT /api/Users/{id}
+Description: Update an existing user's details by their ID. Replace {id} with the User ID.
+Request Body: Required (JSON containing the updated user details, typically including id).
+DELETE /api/Users/{id}
+Description: Delete a user by their ID. Replace {id} with the User ID.
+Request Body: None
+POST /api/Users/{userId}/AssignRole/{roleId}
+Description: Assign a specific role to a specific user. Replace {userId} and {roleId} with the actual IDs.
+Request Body: None
+DELETE /api/Users/{userId}/RemoveRole/{roleId}
+Description: Remove a specific role from a user. Replace {userId} and {roleId} with the actual IDs. (Requires implementation).
+Request Body: None
+2. Role Endpoints (/api/Roles)
+
+GET /api/Roles
+Description: Retrieve a list of all roles.
+Request Body: None
+GET /api/Roles/{id}
+Description: Retrieve a specific role by its ID. Replace {id} with the Role ID.
+Request Body: None
+POST /api/Roles
+Description: Create a new role.
+Request Body: Required (JSON containing name).
+PUT /api/Roles/{id}
+Description: Update an existing role's details by its ID. Replace {id} with the Role ID.
+Request Body: Required (JSON containing the updated role details, typically including id).
+DELETE /api/Roles/{id}
+Description: Delete a role by its ID. Replace {id} with the Role ID.
+Request Body: None
+3. Post Endpoints (/api/Posts)
+
+GET /api/Posts
+Description: Retrieve a list of all posts.
+Request Body: None
+GET /api/Posts/{id}
+Description: Retrieve a specific post by its ID. Replace {id} with the Post ID.
+Request Body: None
+POST /api/Posts
+Description: Create a new post.
+Request Body: Required (JSON containing title, content, userId).
+PUT /api/Posts/{id}
+Description: Update an existing post's details by its ID. Replace {id} with the Post ID.
+Request Body: Required (JSON containing the updated post details, typically including id).
+DELETE /api/Posts/{id}
+Description: Delete a post by its ID. Replace {id} with the Post ID.
+Request Body: None

@@ -1,0 +1,29 @@
+<h2>Post Details</h2>
+
+<div *ngIf="post">
+  <div>
+    <strong>Post ID:</strong> {{ post.id }}
+  </div>
+  <div>
+    <strong>Content:</strong>
+    <p>{{ post.content }}</p>
+  </div>
+  <div>
+    <strong>Author User ID:</strong> {{ post.userId }}
+  </div>
+
+  <div>
+     <strong>Author:</strong>
+     <span *ngIf="author">{{ author.username }}</span>
+     <span *ngIf="!author && post.userId !== undefined && post.userId !== null">Loading Author... or Author not found</span>
+     <span *ngIf="!author && (post.userId === undefined || post.userId === null)">Author User ID not specified.</span>
+  </div>
+  <hr>
+
+  <p><a routerLink="/posts">Back to Post List</a></p>
+
+</div>
+
+<div *ngIf="!post">
+    <p>Loading post details...</p>
+</div>

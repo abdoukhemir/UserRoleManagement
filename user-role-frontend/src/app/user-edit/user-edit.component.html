@@ -1,0 +1,38 @@
+<h2>Edit User</h2>
+
+<form *ngIf="editUserForm" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+
+  <div *ngIf="userId !== undefined">
+     <label>User ID:</label>
+     <span>{{ userId }}</span>
+  </div>
+
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" type="text" formControlName="username" required>
+    <div *ngIf="editUserForm.get('username')?.invalid && editUserForm.get('username')?.touched">
+      Username is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" required>
+     <div *ngIf="editUserForm.get('email')?.invalid && editUserForm.get('email')?.touched">
+      <div *ngIf="editUserForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="editUserForm.get('email')?.errors?.['email']">Enter a valid email address.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="editUserForm.invalid">Save Changes</button> <p><a [routerLink]="['/users', userId]">Cancel (Back to Details)</a></p>
+  <p><a routerLink="/users">Cancel (Back to List)</a></p>
+
+
+</form>
+
+<div *ngIf="!editUserForm && userId !== undefined">
+    <p>Loading user data...</p>
+</div>
+<div *ngIf="!editUserForm && userId === undefined">
+    <p>Invalid request: No user ID provided.</p>
+</div>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "hjwEO6O0tj8Dvkrqv8KCuOM9KoFjlIjA570RHvYG0Po=",
+  "Source": "UserRoleManagementApi",
+  "BasePath": "_content/UserRoleManagementApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

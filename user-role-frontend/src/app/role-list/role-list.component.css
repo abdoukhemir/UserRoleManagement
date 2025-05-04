@@ -1,0 +1,57 @@
+/* Add these styles to:
+   - src/app/role-list/role-list.component.css
+*/
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Optional: Style the Create New Role Link/Button if you add one here */
+  
+  .create-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-button:hover {
+    background-color: #218838;
+  }
+  
+  
+  
+  ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+    max-width: 500px; /* Limit list width */
+    margin: 20px auto; /* Center the list */
+  }
+  
+  li {
+    background-color: #f9f9f9; /* Light grey background for list items */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 10px; /* Space between list items */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    display: flex; /* Use flexbox for potential layout within list item */
+    justify-content: space-between; /* Space out content within list item */
+    align-items: center; /* Vertically align content */
+  }
+  
+  /* Style for the 'No roles found' message */
+  .no-roles-message { /* Add a class to the div/p in HTML if needed */
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    margin-top: 20px;
+  }

@@ -1,0 +1,79 @@
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    max-width: 400px; /* Limit form width */
+    margin: 20px auto; /* Center the form */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  form div {
+    margin-bottom: 15px; /* Space between form groups */
+  }
+  
+  form label {
+    display: block; /* Labels on their own line */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%; /* Input fields take full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in element's total width */
+  }
+  
+  form button[type="submit"] {
+    display: block; /* Button on its own line */
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  form button[type="submit"]:disabled {
+    background-color: #ccc; /* Grey background when disabled */
+    cursor: not-allowed;
+  }
+  
+  /* Optional: Style validation messages */
+  form div div {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
+  form p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  form p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  form p a:hover {
+    text-decoration: underline;
+  }

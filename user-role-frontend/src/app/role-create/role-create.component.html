@@ -1,0 +1,15 @@
+<h2>Create New Role</h2>
+
+<form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="name">Role Name:</label>
+    <input id="name" type="text" formControlName="name" required>
+    <div *ngIf="roleForm.get('name')?.invalid && roleForm.get('name')?.touched">
+      Role Name is required.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="roleForm.invalid">Create Role</button> <p><a routerLink="/roles">Cancel</a></p>
+
+</form>

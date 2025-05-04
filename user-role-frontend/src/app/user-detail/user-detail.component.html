@@ -1,0 +1,68 @@
+<h2>User Details</h2>
+
+<div *ngIf="user">
+  <div>
+    <strong>User ID:</strong> {{ user.id }}
+  </div>
+  <div>
+    <strong>Username:</strong> {{ user.username }}
+  </div>
+  <div>
+    <strong>Email:</strong> {{ user.email }}
+  </div>
+
+  <hr>
+
+  <h3>Posts by this User:</h3>
+  <div *ngIf="userPosts && userPosts.length > 0; else noUserPosts">
+      <ul>
+         <li *ngFor="let post of userPosts">
+            Post #{{ post.id }}: {{ post.content.substring(0, 50) + (post.content.length > 50 ? '...' : '') }}
+
+             | <a [routerLink]="['/posts/edit', post.id]">Edit</a>
+             | <button (click)="deletePost(post.id)">Delete</button>
+            </li>
+      </ul>
+  </div>
+  <ng-template #noUserPosts>
+      <p>No posts found for this user.</p>
+  </ng-template>
+  <hr>
+
+  <button [routerLink]="['/posts/create']" [queryParams]="{ userId: user.id }">
+      Create Post for {{ user.username }}
+   </button>
+  <hr> <h3>Assigned Roles:</h3>
+  <div *ngIf="user.userRoles && user.userRoles.length > 0; else noAssignedRoles">
+    <ul>
+      <li *ngFor="let userRole of user.userRoles">
+        {{ userRole.role?.name }}
+        <button (click)="removeRole(user.id, userRole.roleId)">Remove</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noAssignedRoles>
+    <p>No roles currently assigned.</p>
+  </ng-template>
+  <hr>
+
+  <h3>Assign New Role:</h3>
+  <div *ngIf="allRoles && allRoles.length > 0">
+    <select [(ngModel)]="selectedRoleIdToAssign" name="roleToAssign">
+       <option [value]="null" disabled selected>-- Select an Author --</option> <option *ngFor="let role of allRoles" [value]="role.id">
+        {{ role.name }}
+      </option>
+    </select>
+    <button (click)="assignRole(selectedRoleIdToAssign)" [disabled]="selectedRoleIdToAssign === undefined">Assign</button>
+  </div>
+  <div *ngIf="!allRoles || allRoles.length === 0">
+     <p>No roles available to assign.</p>
+  </div>
+  <hr>
+  <p><a routerLink="/users">Back to User List</a></p>
+
+</div>
+
+<div *ngIf="!user">
+    <p>Loading user details...</p>
+</div>

@@ -1,0 +1,33 @@
+<h2>Users List</h2>
+
+<button routerLink="/users/create">Create New User</button>
+<div *ngIf="users.length > 0; else noUsers">
+  <table>
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <a [routerLink]="['/users', user.id]">Detail</a>
+          |
+          <a [routerLink]="['/users/edit', user.id]">Edit</a>
+          |
+          <button (click)="deleteUser(user.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsers>
+  <p>No users found.</p>
+</ng-template>

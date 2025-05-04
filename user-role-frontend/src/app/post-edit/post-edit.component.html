@@ -1,0 +1,42 @@
+<h2>Edit Post</h2>
+
+<form *ngIf="editPostForm" [formGroup]="editPostForm" (ngSubmit)="onSubmit()">
+
+  <div *ngIf="postId !== undefined">
+     <label>Post ID:</label>
+     <span>{{ postId }}</span>
+  </div>
+
+  <div>
+    <label for="content">Content:</label>
+    <textarea id="content" formControlName="content" required rows="5"></textarea>
+    <div *ngIf="editPostForm.get('content')?.invalid && editPostForm.get('content')?.touched">
+      Content is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="userId">Author:</label>
+    <select *ngIf="users && users.length > 0" id="userId" formControlName="userId" required>
+       <option [value]="null" disabled selected>-- Select an Author --</option>
+      <option *ngFor="let user of users" [value]="user.id">
+        {{ user.username }} </option>
+    </select>
+     <div *ngIf="!users || users.length === 0">
+        <p>Loading users or no users available.</p>
+     </div>
+
+     <div *ngIf="editPostForm.get('userId')?.invalid && editPostForm.get('userId')?.touched">
+       Author is required.
+     </div>
+  </div>
+  <button type="submit" [disabled]="editPostForm.invalid">Save Changes</button> <p><a routerLink="/posts">Cancel</a></p>
+
+</form>
+
+<div *ngIf="!editPostForm && postId !== undefined">
+    <p>Loading post data for editing...</p>
+</div>
+<div *ngIf="!editPostForm && postId === undefined">
+    <p>Invalid request: No post ID provided for editing.</p>
+</div>

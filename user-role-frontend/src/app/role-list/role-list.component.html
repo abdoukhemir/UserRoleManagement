@@ -1,0 +1,20 @@
+<h2>Roles List</h2>
+
+<button routerLink="/roles/create">Create New Role</button>
+
+
+<div *ngIf="roles.length > 0; else noRoles">
+  <ul>
+    <li *ngFor="let role of roles">
+      Role ID: {{ role.id }} | Role Name: {{ role.name }}
+      <a [routerLink]="['/roles/edit', role.id]">Edit</a>
+      | <button (click)="deleteRole(role.id)">Delete</button>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noRoles>
+  <div class="no-roles-message">
+    <p>No roles found.</p>
+  </div>
+</ng-template>
