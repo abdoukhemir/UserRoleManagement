@@ -28,7 +28,7 @@ Follow these steps to get the application components up and running on your loca
 
 First, clone the project repository from GitHub:
 
-git clone https://github.com/yourusername/your-repo-name.git  
+git clone https://github.com/abdoukhemir/UserRoleManagement.git  
 cd your-repo-name \# Navigate into the project root directory
 
 Replace yourusername and your-repo-name with your actual GitHub username and repository name.
